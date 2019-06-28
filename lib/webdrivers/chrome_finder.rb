@@ -64,6 +64,8 @@ module Webdrivers
         files = %w[google-chrome chrome chromium chromium-browser]
 
         directories.each do |dir|
+          next unless Dir.exists?(dir)
+
           files.each do |file|
             option = "#{dir}/#{file}"
             return option if File.exist?(option)
